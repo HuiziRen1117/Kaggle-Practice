@@ -28,6 +28,8 @@ I started the competition by focusing on detailed data exploration just to have 
 
 First, Let's start with loading libraries from python
 
+![pic1](https://user-images.githubusercontent.com/38633055/40253292-c0e68be6-5ace-11e8-89e3-d626c7cb39ef.PNG)
+
 
 
 
