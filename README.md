@@ -1,6 +1,6 @@
-#House prices: Ensemble and a comprehensive EDA (keep updating)
+# House prices: Ensemble and a comprehensive EDA (keep updating)
 
-##Executive Summary:
+## Executive Summary:
 
 I started the competition by focusing on detailed data exploration just to have a great grasp of the dataset, which is very useful for dealing with missing value and conducting effective feature engineering. EDA process will be introduced here with many visualizations. This project includes
 
