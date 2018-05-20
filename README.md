@@ -34,6 +34,21 @@ Next, we load the dataset and store it in a dataframe called "df", from the shap
 After loading the dataset, we would like to do some visualization just to have a clear view of our dataset . The first thing I'm interested in is to see how many missing value in each feature. Because our number of features is not small, for a clear view I ordered the output in a descending sequence.
 ![3](https://user-images.githubusercontent.com/38633055/40275191-ba4f4e4c-5bb6-11e8-890a-74ec51254d67.png)
 
+**SalePrice** is the variable we need to predict and because variables like price in reality is often right skewed, so Let's do some analysis on it. 
+
+Basic statistics are shown here:
+![4](https://user-images.githubusercontent.com/38633055/40275317-693e84d8-5bba-11e8-8400-569977c53993.png)
+
+We can also use qqplot to check it's normality
+![5](https://user-images.githubusercontent.com/38633055/40275327-9741b670-5bba-11e8-9078-51a972d7afc0.png)
+
+As expected the price variable **"SalePrice"** is right skewed:
+![6](https://user-images.githubusercontent.com/38633055/40275350-4e1ed0f8-5bbb-11e8-9582-bd8d98902ce1.png)
+![7](https://user-images.githubusercontent.com/38633055/40275361-9c2fa3da-5bbb-11e8-86cd-5daee85a3259.png)
+
+
+
+
 
 
 
