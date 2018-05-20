@@ -27,8 +27,14 @@ I started the competition by focusing on detailed data exploration just to have 
 *	Stacking
 
 First, Let's start with loading libraries from python
+![1](https://user-images.githubusercontent.com/38633055/40275135-0c473a28-5bb4-11e8-9ea5-3d86c37fb3f4.png)
+Next, we load the dataset and store it in a dataframe called "df", from the shape of which we can see that there are 1460 records and 81 features. Our response variable is "SalePrice".
+![2](https://user-images.githubusercontent.com/38633055/40275173-e5d32828-5bb5-11e8-92b6-63a024f3b4df.png)
 
-![pic1](https://user-images.githubusercontent.com/38633055/40253292-c0e68be6-5ace-11e8-89e3-d626c7cb39ef.PNG)
+After loading the dataset, we would be interested to see how many missing values in each feature. Because our number of features is not small, for a clear view I ordered the output in a descending sequence.
+
+
+
 
 
 
