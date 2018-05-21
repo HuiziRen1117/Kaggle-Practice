@@ -114,9 +114,27 @@ NA of this variable means that there is no alley access so I assign string "othe
 This indicates fence quality and like most quality measurement, NA implies no fence. "Fence" is also a categorical variable I still use boxplot to check if we need to keep this variable. In order to do this I need to see how many distinct value in this feature:
 ![22](https://user-images.githubusercontent.com/38633055/40325028-62dad9d0-5d08-11e8-8d47-bfee508414cf.png)
 ![23](https://user-images.githubusercontent.com/38633055/40325580-4da7e010-5d0a-11e8-82ac-5358ad9d7e40.png)
+All levels seem stable and even, which means fence quality doesn't have noticable impact on house price, so I dicided to drop this feature
 
+#### FireplaceQu
+This indicates fireplace quality and similarly NA means no fireplace. Again, we use boxplot to check it's impact on house price
+![25](https://user-images.githubusercontent.com/38633055/40325978-b2f07dc8-5d0b-11e8-84d0-295a660b8a1e.png)
+![24](https://user-images.githubusercontent.com/38633055/40325935-8c8594e8-5d0b-11e8-953b-6f84dfb72b39.png)
 
+As suggested by the plot above the boxes with better quality have higher sale price, which makes sense. Even though there are some outliers in some categories(the left three boxes), I still decided to keep this variable.
 
+#### LogFrontage
+This means linear feet of street connected to property. I decided to drop this because the correlation coeffcient to sale price is low and linear plot also shows weak correlation
+
+![26](https://user-images.githubusercontent.com/38633055/40326503-79a2d244-5d0d-11e8-9e68-359dd2a4c19e.png)
+
+#### GarageCond
+As it's name suggested this means the condition of the garage. This is also a categorical variable so I use boxplot to visualize the data. I decided to drop this because all levels seem on a horizontal line and this variable doesn't contribute much information to sale price
+![27](https://user-images.githubusercontent.com/38633055/40326794-8b0247f8-5d0e-11e8-9bf1-c2ec73755377.png)
+
+#### Other garage-related variables: GarageType, GarageYrBlt, GarageFinish, GarageQual
+These four garage-related variables are very similar and NA indicates no garage. So I replaced NA with string "None"
+![28](https://user-images.githubusercontent.com/38633055/40327044-6ea67240-5d0f-11e8-8abf-fd1cca8476ee.png)
 
 
 
