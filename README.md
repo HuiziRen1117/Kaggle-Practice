@@ -85,7 +85,7 @@ It seems "GarageCars"(size of garage in car capacity) and house price have great
 Next I will do some feature engineering to the existing dataset. Since in reality even structured datasets will have some missing value, not clean data formating issues, and need further modification. This section will therefore include imputing missing data, re-defining categorical & numerical variables, dropping existing irrelavant features, or adding & merging new features.
 
 ### Missing Values
-
+1
 
 
 
