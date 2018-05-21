@@ -132,12 +132,14 @@ This means linear feet of street connected to property. I decided to drop this b
 As it's name suggested this means the condition of the garage. This is also a categorical variable so I use boxplot to visualize the data. I decided to drop this because all levels seem on a horizontal line and this variable doesn't contribute much information to sale price
 ![27](https://user-images.githubusercontent.com/38633055/40326794-8b0247f8-5d0e-11e8-9bf1-c2ec73755377.png)
 
-#### Other garage-related variables: GarageType, GarageYrBlt, GarageFinish, GarageQual
+#### Other garage-related Variables: GarageType, GarageYrBlt, GarageFinish, GarageQual
 These four garage-related variables are very similar and NA indicates no garage. So I replaced NA with string "None"
 ![28](https://user-images.githubusercontent.com/38633055/40327044-6ea67240-5d0f-11e8-8abf-fd1cca8476ee.png)
 
 
-
+#### Basement-related Variables:
+Similarly to garage-related variables, these five basement-related variables are very similar and NA indicates no basement. So I replaced NA with string "None"
+![29](https://user-images.githubusercontent.com/38633055/40327275-4699438a-5d10-11e8-905f-20cbc206b32c.png)
 
 
 
