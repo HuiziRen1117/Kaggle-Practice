@@ -64,7 +64,7 @@ Now it looks normal! Both qqplot and density plot reflect that the transformatio
 
 **Correlation Matrix:**
 
-![10](https://user-images.githubusercontent.com/38633055/40282419-f2d7b732-5c3c-11e8-9a19-52693605b284.png)
+![10](https://user-images.githubusercontent.com/38633055/40322961-fd4b7e54-5d01-11e8-852e-3b92b56c7f77.png)
 
 The correlation matrix may still look a bit unclear to you so I extracted top 10 correlated pairs
 ![12](https://user-images.githubusercontent.com/38633055/40282711-6e1cad9a-5c41-11e8-8c57-7034fb9a4a49.png)
@@ -88,6 +88,11 @@ Next I will do some feature engineering to the existing dataset. Since in realit
 Usually dataset will contain a lot of missing data. Some of them are not really "missing" just because they are none in nature.For example, quality measurements of a garage can have **NA** when there is no garage. In this case there is no need to impute the missing data. However there are other types of missing value requiring filling in order to maintain effectiveness of data.
 
 First of all, I would like to see which variables have missing value and how many are missing:
+
+![16](https://user-images.githubusercontent.com/38633055/40322576-cb566126-5d00-11e8-9502-8b6e7c7cf76d.png)
+
+So there are 19 variables having missing data and I'm going to deal with them one by one. 
+![2018-05-21 2 17 48](https://user-images.githubusercontent.com/38633055/40322907-cff51230-5d01-11e8-9187-2382db14b019.png)
 
 
 
