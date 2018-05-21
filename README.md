@@ -110,6 +110,11 @@ This indicates type of alley access to property. It is categorical so we still u
 
 NA of this variable means that there is no alley access so I assign string "other" to replace NA. As suggested in the boxplot(the two in the middle of above figure), type "Gravel" and type "Paved" seem to have very similar impact so I assign and aggregate both "Grvl" and "Pave" as "Both"
 
+#### Fence
+This indicates fence quality and like most quality measurement, NA implies no fence. "Fence" is also a categorical variable I still use boxplot to check if we need to keep this variable. In order to do this I need to see how many distinct value in this feature:
+![22](https://user-images.githubusercontent.com/38633055/40325028-62dad9d0-5d08-11e8-8d47-bfee508414cf.png)
+![23](https://user-images.githubusercontent.com/38633055/40325580-4da7e010-5d0a-11e8-82ac-5358ad9d7e40.png)
+
 
 
 
