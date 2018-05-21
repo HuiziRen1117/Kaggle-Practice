@@ -154,6 +154,14 @@ This variable denotes masonry veneer area in square feet and similar to MasVnrTy
 
 We can see that linear correlation exists and I fill the missing value with the average of none-NA value.
 
+#### Electrical
+This variable represents electrical system.Since we only have 1 missing value in this variable, I replace the NA with the highest-frequency category. 
+![35](https://user-images.githubusercontent.com/38633055/40334890-a29ab65a-5d2e-11e8-9e78-050aa71a9f2a.png)
+
+The most frequent electrical system is "SBrkr" with frequency 1334.
+
+Up to now we have filled with all missing value!
+![38](https://user-images.githubusercontent.com/38633055/40335194-6ddb68fe-5d30-11e8-85e8-08b0139d9ae8.png)
 
 
 
