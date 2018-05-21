@@ -101,6 +101,15 @@ This indicates miscellaneous feature not covered in other categories. It is a ca
 ![18](https://user-images.githubusercontent.com/38633055/40323953-01a00986-5d05-11e8-9e19-31d1cb835bb0.png)
 ![19](https://user-images.githubusercontent.com/38633055/40323850-bc9cf7c2-5d04-11e8-8563-1610ec834ddf.png)
 
+I decided to drop this variable because I don't see pattern in this box plot and this type of irrelavant variable will distract final model fitting
+
+#### Alley
+This indicates type of alley access to property. It is categorical so we still use boxplot to check:
+![20](https://user-images.githubusercontent.com/38633055/40324215-dded8792-5d05-11e8-92a6-856bfe6ba4d7.png)
+![21](https://user-images.githubusercontent.com/38633055/40324370-538a2fa0-5d06-11e8-9fc1-1877ca77de41.png)
+
+NA of this variable means that there is no alley access so I assign string "other" to replace NA. As suggested in the boxplot(the two in the middle of above figure), type "Gravel" and type "Paved" seem to have very similar impact so I assign and aggregate both "Grvl" and "Pave" as "Both"
+
 
 
 
