@@ -92,9 +92,14 @@ First of all, I would like to see which variables have missing value and how man
 ![16](https://user-images.githubusercontent.com/38633055/40322576-cb566126-5d00-11e8-9502-8b6e7c7cf76d.png)
 
 So there are 19 variables having missing data and I'm going to deal with them one by one. 
-![2018-05-21 2 17 48](https://user-images.githubusercontent.com/38633055/40322907-cff51230-5d01-11e8-9187-2382db14b019.png)
+#### PoolQC
+As its name suggests, this is quality of the pool of houses. Based on data description, NA simply implies there is no pool in the house.
+![17](https://user-images.githubusercontent.com/38633055/40323413-4a67e514-5d03-11e8-9615-7d241a4cfeff.png)
 
-
+#### MiscFeature
+This indicates miscellaneous feature not covered in other categories. It is a categorical variable and to see it's impact on house price I apply box plot to check
+![18](https://user-images.githubusercontent.com/38633055/40323953-01a00986-5d05-11e8-9e19-31d1cb835bb0.png)
+![19](https://user-images.githubusercontent.com/38633055/40323850-bc9cf7c2-5d04-11e8-8563-1610ec834ddf.png)
 
 
 
