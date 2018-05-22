@@ -157,13 +157,21 @@ We can see that linear correlation exists and I fill the missing value with the 
 #### Electrical
 This variable represents electrical system.Since we only have 1 missing value in this variable, I replace the NA with the highest-frequency category. 
 ![35](https://user-images.githubusercontent.com/38633055/40334890-a29ab65a-5d2e-11e8-9e78-050aa71a9f2a.png)
+![39](https://user-images.githubusercontent.com/38633055/40335416-81a25068-5d31-11e8-9bce-48412a10bc09.png)
 
 The most frequent electrical system is "SBrkr" with frequency 1334.
 
 Up to now we have filled with all missing value!
 ![38](https://user-images.githubusercontent.com/38633055/40335194-6ddb68fe-5d30-11e8-85e8-08b0139d9ae8.png)
 
+### Continue Feature Engineering: Transform Numerical Variables Into Categorical Variables
+After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
 
+Let's first take a look at what are the current numerical variables:
+
+![40](https://user-images.githubusercontent.com/38633055/40335686-f5cc0d70-5d32-11e8-9b25-bc9acd841019.png)
+
+I have gone through these numerical features one by one and since we have too many these variables I will pick up key transformation and summarize the final results
 
 
 
