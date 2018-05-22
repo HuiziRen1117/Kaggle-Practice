@@ -82,7 +82,7 @@ From figures above it seems that overall quality of the house and house price ha
 It seems "GarageCars"(size of garage in car capacity) and house price have great linear correlation. "GarageCarS" is an orderal variable ranked from 0 to 4. 4 means biggest size which in general makes sense as usually it takes higher price to have a bigger garage. However we also notice that most size of garage is concentrated between 0 and 3, and we don't see such linear correlation in size value 4. Also there are more outliers in size 3 and 4 than smaller size.
 
 ## 4. Feature Engineering
-Next I will do some feature engineering to the existing dataset. Since in reality even structured datasets will have some missing value, not clean data formating issues, and need further modification. This section will therefore include imputing missing data, re-defining categorical & numerical variables, dropping existing irrelavant features, or adding & merging new features.
+Next I will do some feature engineering to the existing dataset. Since in reality even structured datasets will have some missing value, not clean data formating issues, and further transformation needed. This section will therefore include imputing missing data, re-defining categorical & numerical variables, getting dummy variables, dropping existing irrelavant features, or adding & merging new features.
 
 ### 4.1 Missing Values
 Usually dataset will contain a lot of missing data. Some of them are not really "missing" just because they are none in nature.For example, quality measurements of a garage can have **NA** when there is no garage. In this case there is no need to impute the missing data. However there are other types of missing value requiring filling in order to maintain effectiveness of data.
@@ -199,17 +199,27 @@ As explained in the last session, this feature illustrates original construction
 ![106](https://user-images.githubusercontent.com/38633055/40370473-d9ae8bac-5dcf-11e8-9cf3-7061549ed1cd.PNG)
 
 #### Mosold
-This indicates the month when the house was sold. I turn this feature into a categorical variable because months are not ordinal. We cannot say Feburary is larger than January.
+This indicates the month when the house was sold. I turn this feature into a categorical variable because months are not ordinal. We cannot say Feburary is larger than January. At last, I tranform three variables mentioned above at once.
+![111](https://user-images.githubusercontent.com/38633055/40375078-07419d70-5dda-11e8-94d7-84e13d0cd092.PNG)
 
 #### Add "TotalSF" variable
-I aggregate 
+It makes sense to me to see expensive houses own big area. To build a powerful variable indicating the total area. I aggregate total square feet for basement area, first floor and second floor.
+![107](https://user-images.githubusercontent.com/38633055/40371854-eba71cd6-5dd2-11e8-9ce7-500d3c799dd9.PNG)
+![108](https://user-images.githubusercontent.com/38633055/40371878-fddc62da-5dd2-11e8-811f-8534307b61ee.png)
 
+It's great to see such strong correlation between total area and sale price!
 
+#### Add "TotalBath" variable
+Similar to aggregating area features, I also find several features for numbers of bath rooms. They are 
+* BsmtFullBath: Basement full bathrooms
+* BsmtHalfBath: Basement half bathrooms
+* FullBath: Full bathrooms above grade
+* HalfBath: Half baths above grade
+![109](https://user-images.githubusercontent.com/38633055/40374297-4e867a22-5dd8-11e8-8d5b-524dd4a7335d.PNG)
 
-
-
-
-
+#### Drop variables
+Based on analysis in section 4.1 and 4.2, I will drop variables below:
+![110](https://user-images.githubusercontent.com/38633055/40374838-7c0e0c34-5dd9-11e8-8fc7-ac91b5542c3a.PNG)
 
 
 
