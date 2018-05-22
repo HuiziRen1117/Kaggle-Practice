@@ -1,6 +1,6 @@
 # House prices: Ensemble and a comprehensive EDA (keep updating)
 
-## Introduction
+## 1. Introduction
 
 Kaggle describes this competition as follows:
 
@@ -8,7 +8,7 @@ Ask a home buyer to describe their dream house, and they probably won’t begin 
 
 With 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa, this competition challenges you to predict the final price of each home.
 
-## Executive Summary:
+## 2. Executive Summary:
 
 I started the competition by focusing on detailed data exploration just to have a great grasp of the dataset, which is very useful for dealing with missing value and conducting effective feature engineering. EDA process will be introduced here with many visualizations. This project includes
 
@@ -34,7 +34,7 @@ I started the competition by focusing on detailed data exploration just to have 
 
 *	Stacking
 
-## Exploratory Data Analysis
+## 3. Exploratory Data Analysis
 
 **First, Let's start with loading libraries from python**
 ![1](https://user-images.githubusercontent.com/38633055/40275135-0c473a28-5bb4-11e8-9ea5-3d86c37fb3f4.png)
@@ -81,10 +81,10 @@ From figures above it seems that overall quality of the house and house price ha
 
 It seems "GarageCars"(size of garage in car capacity) and house price have great linear correlation. "GarageCarS" is an orderal variable ranked from 0 to 4. 4 means biggest size which in general makes sense as usually it takes higher price to have a bigger garage. However we also notice that most size of garage is concentrated between 0 and 3, and we don't see such linear correlation in size value 4. Also there are more outliers in size 3 and 4 than smaller size.
 
-## Feature Engineering
+## 4. Feature Engineering
 Next I will do some feature engineering to the existing dataset. Since in reality even structured datasets will have some missing value, not clean data formating issues, and need further modification. This section will therefore include imputing missing data, re-defining categorical & numerical variables, dropping existing irrelavant features, or adding & merging new features.
 
-### Missing Values
+### 4.1 Missing Values
 Usually dataset will contain a lot of missing data. Some of them are not really "missing" just because they are none in nature.For example, quality measurements of a garage can have **NA** when there is no garage. In this case there is no need to impute the missing data. However there are other types of missing value requiring filling in order to maintain effectiveness of data.
 
 First of all, I would like to see which variables have missing value and how many are missing:
@@ -164,14 +164,34 @@ The most frequent electrical system is "SBrkr" with frequency 1334.
 Up to now we have filled with all missing value!
 ![38](https://user-images.githubusercontent.com/38633055/40335194-6ddb68fe-5d30-11e8-85e8-08b0139d9ae8.png)
 
-### Continue Feature Engineering: Transform Numerical Variables Into Categorical Variables
+### 4.2 Continue Feature Engineering: 
+**Transform Numerical Variables Into Categorical Variables**
+**Tranform data and time into years**
+**Merge certain variables**
+
 After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
 
 Let's first take a look at what are the current numerical variables:
 
 ![40](https://user-images.githubusercontent.com/38633055/40335686-f5cc0d70-5d32-11e8-9b25-bc9acd841019.png)
 
-I have gone through these numerical features one by one and since we have too many these variables I will pick up key transformation and summarize the final results
+I have gone through these numerical features one by one and since we have too many of these variables I will pick up key transformation and summarize the final results
+#### MSSubClass
+This variable identifies the type of dwelling involved in the sale. I will change this into a categorical variable as seen from the figure below different levels of MSSubClass do have impact on sale.
+![101](https://user-images.githubusercontent.com/38633055/40367504-1d21e1a6-5dc9-11e8-95d8-02b92e59c8b7.png)
+
+#### OverallCond
+It rates the overall material and finish of the house. It's rated from 1 to 10 while 1 means "very poor" and 10 means "Very Excellent". This feature is turned into categorical and for visualization I draw a regression plot of this data to house price.
+![102](https://user-images.githubusercontent.com/38633055/40367878-f3db3e18-5dc9-11e8-9813-63eae3fec6b9.png)
+
+We can see the upward trend from rating 1 to 10.
+
+#### YearRemodAdd
+This indicates remodel date (same as construction date if no remodeling or additions)
+![103](https://user-images.githubusercontent.com/38633055/40368630-c7d6e78e-5dcb-11e8-89e9-d5149638b026.PNG)
+
+
+
 
 
 
