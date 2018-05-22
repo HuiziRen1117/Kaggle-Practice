@@ -166,8 +166,9 @@ Up to now we have filled with all missing value!
 
 ### 4.2 Continue Feature Engineering: 
 **Transform Numerical Variables Into Categorical Variables**
-**Tranform data and time into years**
+**Tranform date and time**
 **Merge certain variables**
+**Drop variables
 
 After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
 
@@ -221,6 +222,7 @@ Similar to aggregating area features, I also find several features for numbers o
 Based on analysis in section 4.1 and 4.2, I will drop variables below:
 ![110](https://user-images.githubusercontent.com/38633055/40374838-7c0e0c34-5dd9-11e8-8fc7-ac91b5542c3a.PNG)
 
+### 4.3 Transform categorical features into numerical data
 
 
 
