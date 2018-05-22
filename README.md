@@ -137,7 +137,18 @@ As it's name suggested this means the condition of the garage. This is also a ca
 
 #### Other Garage-Related Variables: GarageType, GarageYrBlt, GarageFinish, GarageQual
 These four garage-related variables are very similar and NA indicates no garage. So I replaced NA with string "None"
-![28](https://user-images.githubusercontent.com/38633055/40327044-6ea67240-5d0f-11e8-8abf-fd1cca8476ee.png)
+
+**Drop variables
+
+After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
+
+Let's first take a look at what are the current numerical variables:
+
+![40](https://user-images.githubusercontent.com/38633055/40335686-f5cc0d70-5d32-11e8-9b25-bc9acd841019.png)
+
+I have gone through these numerical features one by one and since we have too many of these variables I will pick up key transformation and summarize the final results
+#### MSSubClass
+This variable identifies the type of dwelling involved in the sale. I will change this into a categorical variable as seen from the figure below different levels of MSSubClass do have impact on sale.![28](https://user-images.githubusercontent.com/38633055/40327044-6ea67240-5d0f-11e8-8abf-fd1cca8476ee.png)
 
 #### Basement-related Variables:
 Similarly to garage-related variables, these five basement-related variables are very similar and NA indicates no basement. So I replaced NA with string "None"
@@ -168,17 +179,6 @@ Up to now we have filled with all missing value!
 **Transform Numerical Variables Into Categorical Variables**
 **Tranform date and time**
 **Merge certain variables**
-**Drop variables
-
-After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
-
-Let's first take a look at what are the current numerical variables:
-
-![40](https://user-images.githubusercontent.com/38633055/40335686-f5cc0d70-5d32-11e8-9b25-bc9acd841019.png)
-
-I have gone through these numerical features one by one and since we have too many of these variables I will pick up key transformation and summarize the final results
-#### MSSubClass
-This variable identifies the type of dwelling involved in the sale. I will change this into a categorical variable as seen from the figure below different levels of MSSubClass do have impact on sale.
 ![101](https://user-images.githubusercontent.com/38633055/40367504-1d21e1a6-5dc9-11e8-95d8-02b92e59c8b7.png)
 
 #### OverallCond
@@ -223,8 +223,37 @@ Based on analysis in section 4.1 and 4.2, I will drop variables below:
 ![110](https://user-images.githubusercontent.com/38633055/40374838-7c0e0c34-5dd9-11e8-8fc7-ac91b5542c3a.PNG)
 
 ### 4.3 Transform categorical features into numerical data
+In this dataset, we have quite a few categorical data related to quality or condition. These types of data will often reveal ordinal information. *For example, variable "PoolQC" has five levels:* 
+* *Ex: Excellent*
+* *Gd: Good*
+* *TA: Average/Typical*
+* *Fa: Fair*
+* *NA: No pool*
+
+It's not hard to notice that these five levels are ordinal actually so I assign value 4 to 0 to represent "Ex", "Gd", "TA", "Fa" and NA, respectively. people might argue that even if we leave this variable as category we would still be able to use this feature. I agree, but if we leave it categorical we have to either factorize it or set it as dummy variables, which will greatly increase the variable size in the final dataset and drag down the calculation speed in later modeling part. It's my personal habit to transform certain categorical variables into numbers before getting dummy variables for all categorical data. 
+
+I went through categorical variables and turn the following data into numerical features:
+* Utilities
+* ExterQual
+* ExterCond
+* HeatingQC
+* KitchenQual
+* BsmtQual
+* BsmtCond
+* PoolQC
+* BsmtFinType1
+* BsmtFinType2
+* FireplaceQu
+* GarageQual
+![113](https://user-images.githubusercontent.com/38633055/40389088-f1590f1c-5e00-11e8-86da-8512dc4f87c8.PNG)
+
+Besides specifying the transformation in this dataset, I also write another class to generalize the solution. One disadvantage in python label encoder is that it randomly assigns numbers to each category, by doing which we might not get the right sequence of numbers coorespondent to right categories. The idea of my solution is that for categorical variables that have obvious ordinal information, label encoder can be applied to these variables and the number is assigned according to it's impact on predicted variable. Not only numbers will be assigned correctly but also each encoder transformation for each variables will be recorded.
+![115](https://user-images.githubusercontent.com/38633055/40390424-bd3c8020-5e04-11e8-844e-4883d8397762.PNG)
 
 
+### 4.4 Turn categorical data into dummy variables
+At the end, I split sale price from training set as the variable of prediction and I get dummy variables for all the categorical features. 
+![114](https://user-images.githubusercontent.com/38633055/40389261-6c8d207e-5e01-11e8-8579-a544d8da8b2e.PNG)
 
-
+## Modelling 
 
