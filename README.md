@@ -190,6 +190,19 @@ We can see the upward trend from rating 1 to 10.
 This indicates remodel date (same as construction date if no remodeling or additions)
 ![103](https://user-images.githubusercontent.com/38633055/40368630-c7d6e78e-5dcb-11e8-89e9-d5149638b026.PNG)
 
+Here you can see there is an upward trend in the regression plot that the most recent constructed houses in general have the highest price, but you might also noticed that something strange is happening at year 1950. All the data points before year 1950 are truncated and possibly classified into year 1950, so I replace all the data points before 1950 with another variable "YearBuilt". "YearBuilt" denotes when the houses were built. **This transformation helps me improve the model error!** Figures below show updated variable "YearRemodAdd" and it's regression results 
+![104](https://user-images.githubusercontent.com/38633055/40369457-8db96fe8-5dcd-11e8-8b84-a37c16c32c17.PNG)
+![105](https://user-images.githubusercontent.com/38633055/40369501-9ec05ab8-5dcd-11e8-8c31-1aefbb1fe444.png)
+
+#### YearBuilt
+As explained in the last session, this feature illustrates original construction year. Normally it is not the best to put time variable direclty in dataset. Instead, I will transform this absolute time variable into time difference, which is the age of the house. I do the same for transformed variable "YearRemodAdd"
+![106](https://user-images.githubusercontent.com/38633055/40370473-d9ae8bac-5dcf-11e8-9cf3-7061549ed1cd.PNG)
+
+#### Mosold
+This indicates the month when the house was sold. I turn this feature into a categorical variable because months are not ordinal. We cannot say Feburary is larger than January.
+
+#### Add "TotalSF" variable
+I aggregate 
 
 
 
