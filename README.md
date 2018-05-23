@@ -287,9 +287,10 @@ Robust scaler is also applied
 
 ### 5.2 Base Model Scores & Model Selection
 
-Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score
+Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score. Also we will focus on how to optimize each base model based on these scores.
 
 * **1) Elastic Net Regression**
+
 Initial score is:
 ![124](https://user-images.githubusercontent.com/38633055/40436052-9cea476a-5ea1-11e8-9434-04a2799a3756.PNG)
 
@@ -312,16 +313,24 @@ We have six main parameters in Gradient Boosting Regression model: *n_estimators
 
 ![130](https://user-images.githubusercontent.com/38633055/40447315-ab1df816-5ec1-11e8-84d0-7073a16184b5.PNG)
 
-Lasso has the parameter alpha to control the severity of panelty term and it is also the model driver. After trying a few value of alpha, I have winded on an interval [0.0005,0.0006] to search the best value for alpha.
+Lasso has the parameter alpha to control the severity of panelty term and it is also the model driver. After trying a few value of alpha just to get idea about what the suitable range would be, I have winded on an interval [0.0005,0.0006] to search for the best alpha value.
 
 ![131](https://user-images.githubusercontent.com/38633055/40448692-c4f301f6-5ec5-11e8-8f12-4297b5ce3637.PNG)
 
-
 * **4) Random Forest**
+
 The initial score:
 ![127](https://user-images.githubusercontent.com/38633055/40437343-9961d7ae-5ea4-11e8-9994-5ee94e1e6dae.PNG)
 
-I grid search the parameter "max_feature" in RandomForest and find value XX is the most suitable.
+After gridsearching the parameter "max_feature" in RandomForest and find value XX is the most suitable.
 # Add a picture
 After changing the parameter the score now looks like
 # Add a pic
+
+### 5.3 Model Stacking
+
+After optimizing individual base model, I will apply stacking approach to unite these models for more accurate prediction. I start with a simple approach averaging the prediction value from base models. Here is the class I use to stack
+
+![132](https://user-images.githubusercontent.com/38633055/40450894-817b3a0e-5ecc-11e8-8e29-94629bea5e73.PNG)
+
+
