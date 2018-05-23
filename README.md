@@ -246,5 +246,26 @@ Besides specifying the transformation in this dataset, I also write another clas
 At the end, I split sale price from training set as the variable of prediction and I get dummy variables for all the categorical features. 
 ![114](https://user-images.githubusercontent.com/38633055/40389261-6c8d207e-5e01-11e8-8579-a544d8da8b2e.PNG)
 
-## Modelling   
+## 5. Modelling   
+Load Libraries
+![116](https://user-images.githubusercontent.com/38633055/40429348-08e557bc-5e92-11e8-98c4-d7c3ce3a0437.PNG)
+
+### 5.1 Base Machine Learning Models
+All the base models are packaged in **pipelines**. Pipelines help automating the workflow of data pre-processing, model training and fitting. In this section, I propose some base models to use and I optimize the performance of each base model by selecting the most suitable parameters, which is so called gridsearch. 
+
+Before running models, Let's first define the cross validation function (**why do we need this??**). I use the **cross_val_score** function from scikit-learn but this function do not have a shuffle attribute, so I add a line of code **KFold** in order to shuffle the dataset before cross validation.
+![117](https://user-images.githubusercontent.com/38633055/40432388-1d6599ac-5e99-11e8-86a8-fc476fb5821d.PNG)
+
+I have also customized a scorer to be used in *GridSearchCV()*
+![118](https://user-images.githubusercontent.com/38633055/40432547-7d4e175e-5e99-11e8-9122-75104dfdb704.PNG)
+
+### Base Models
+* **Random Forest:**
+
+![119](https://user-images.githubusercontent.com/38633055/40433216-fada2130-5e9a-11e8-8de7-4a1f462f0762.PNG)
+
+* **Lasso:**
+Penalized regression models like Lasso or Ridge are sensitive to outliers, so we need to robust the dataset before running the model
+
+![120](https://user-images.githubusercontent.com/38633055/40433528-b95ec890-5e9b-11e8-8f3f-7ebe785fd3b4.PNG)
 
