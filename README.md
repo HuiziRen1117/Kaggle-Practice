@@ -12,27 +12,19 @@ With 79 explanatory variables describing (almost) every aspect of residential ho
 
 I started the competition by focusing on detailed data exploration just to have a great grasp of the dataset, which is very useful for dealing with missing value and conducting effective feature engineering. EDA process will be introduced here with many visualizations. This project includes
 
-* **Imputing missing values** by processing sequentially through each feature
+* **Exploratory Data Analysis**
 
-*	**Transforming** some numerical variables that are actually categorical 
+*	**Feature Engineering**
 
-*	**Scaling** all numerical variables
+* **Build Machine Learning Base Models in Pipeline** 
 
-*	**Label Encoding** the categorical variables that are ordinal
+* **Grid Search** parameters to optimize a machine learning model
 
-*	**Getting dummy variables** for  all categorical features
+* **Random Forest**
 
-* Build Pipelines in Machine Learning
+*	**XGBoost**
 
-* Grid Search parameters to optimize a machine learning model
-
-*	Lasso regression
-
-* Random Forest
-
-*	XGBoost
-
-*	Stacking
+*	**Stacking**
 
 ## 3. Exploratory Data Analysis
 
@@ -138,7 +130,7 @@ As it's name suggested this means the condition of the garage. This is also a ca
 #### Other Garage-Related Variables: GarageType, GarageYrBlt, GarageFinish, GarageQual
 These four garage-related variables are very similar and NA indicates no garage. So I replaced NA with string "None"
 
-**Drop variables
+**Drop variables**
 
 After imputing missing data I still need to clean the data format, because we have some categorical variables that should be numerical and some numerical variables that are essentially categorical. 
 
@@ -247,13 +239,12 @@ I went through categorical variables and turn the following data into numerical 
 * GarageQual
 ![113](https://user-images.githubusercontent.com/38633055/40389088-f1590f1c-5e00-11e8-86da-8512dc4f87c8.PNG)
 
-Besides specifying the transformation in this dataset, I also write another class to generalize the solution. One disadvantage in python label encoder is that it randomly assigns numbers to each category, by doing which we might not get the right sequence of numbers coorespondent to right categories. The idea of my solution is that for categorical variables that have obvious ordinal information, label encoder can be applied to these variables and the number is assigned according to it's impact on predicted variable. Not only numbers will be assigned correctly but also each encoder transformation for each variables will be recorded.
+Besides specifying the transformation in this dataset, I also write another class function to generalize the solution. One disadvantage in python method "label_encoder" is that it randomly assigns numbers to each category, by doing which we might not get the right sequence of numbers coorespondent to right categories. The idea of my solution is that for categorical variables that have obvious ordinal information, label encoder can be applied to these variables and the number is assigned according to it's impact on predicted variable. Not only numbers will be assigned correctly but also each encoder transformation for each variable will be recorded so that numbers can be transferred back to categories.
 ![115](https://user-images.githubusercontent.com/38633055/40390424-bd3c8020-5e04-11e8-844e-4883d8397762.PNG)
-
 
 ### 4.4 Turn categorical data into dummy variables
 At the end, I split sale price from training set as the variable of prediction and I get dummy variables for all the categorical features. 
 ![114](https://user-images.githubusercontent.com/38633055/40389261-6c8d207e-5e01-11e8-8579-a544d8da8b2e.PNG)
 
-## Modelling 
+## Modelling   
 
