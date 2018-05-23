@@ -260,12 +260,47 @@ I have also customized a scorer to be used in *GridSearchCV()*
 ![118](https://user-images.githubusercontent.com/38633055/40432547-7d4e175e-5e99-11e8-9122-75104dfdb704.PNG)
 
 ### Base Models
-* **Random Forest:**
+* **Random Forest**
 
 ![119](https://user-images.githubusercontent.com/38633055/40433216-fada2130-5e9a-11e8-8de7-4a1f462f0762.PNG)
 
-* **Lasso:**
+* **Lasso**
+
 Penalized regression models like Lasso or Ridge are sensitive to outliers, so we need to robust the dataset before running the model
 
 ![120](https://user-images.githubusercontent.com/38633055/40433528-b95ec890-5e9b-11e8-8f3f-7ebe785fd3b4.PNG)
+
+* **Gradient Boosting Regression**
+
+To avoid the model sensitivity to ourtliers, robust scaler is also applied.
+
+![121](https://user-images.githubusercontent.com/38633055/40434766-98dd2690-5e9e-11e8-8984-d53d67ccbd2f.PNG)
+
+* **Elastic Net Regression**
+
+Robust scaler is also applied
+
+![122](https://user-images.githubusercontent.com/38633055/40434863-daf6da3a-5e9e-11e8-9e0c-b4af324f96eb.PNG)
+
+* **XGBoost**
+
+### Base Model Scores
+
+Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score
+
+* **Elastic Net Regression**
+
+![124](https://user-images.githubusercontent.com/38633055/40436052-9cea476a-5ea1-11e8-9434-04a2799a3756.PNG)
+
+Elastic Net Regression has two main parameters: alpha and l1 ratio. Then I define two possible sets of data to grid search the best parameter combination
+![125](https://user-images.githubusercontent.com/38633055/40436625-e8416b0c-5ea2-11e8-8fce-b08a0b3a2e55.PNG)
+
+From figure above we can see when alpha=0.00055 and l1 ratio=0.95 will give lowest error score. Now Elastic Net Regression model has improved a bit and we run the score again
+
+![126](https://user-images.githubusercontent.com/38633055/40436956-a275f6e6-5ea3-11e8-87f8-0be35b01093e.PNG)
+
+* **Random Forest**
+
+The initial score:
+![127](https://user-images.githubusercontent.com/38633055/40437343-9961d7ae-5ea4-11e8-9994-5ee94e1e6dae.PNG)
 
