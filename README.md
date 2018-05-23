@@ -259,7 +259,8 @@ Before running models, Let's first define the cross validation function (**why d
 I have also customized a scorer to be used in *GridSearchCV()*
 ![118](https://user-images.githubusercontent.com/38633055/40432547-7d4e175e-5e99-11e8-9122-75104dfdb704.PNG)
 
-### Base Models
+**Base Models**
+
 * **Random Forest**
 
 ![119](https://user-images.githubusercontent.com/38633055/40433216-fada2130-5e9a-11e8-8de7-4a1f462f0762.PNG)
@@ -284,7 +285,7 @@ Robust scaler is also applied
 
 * **XGBoost**
 
-### Base Model Scores
+### 5.2 Base Model Scores & Model Selection
 
 Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score
 
@@ -295,7 +296,7 @@ Initial score is:
 Elastic Net Regression has two main parameters: alpha and l1 ratio. Then I define two possible sets of data to grid search the best parameter combination
 ![125](https://user-images.githubusercontent.com/38633055/40436625-e8416b0c-5ea2-11e8-8fce-b08a0b3a2e55.PNG)
 
-From figure above we can see when alpha=0.00055 and l1 ratio=0.95 will give lowest error score. Now Elastic Net Regression model has improved a bit and we run the score again
+From figure above we can see when alpha=0.00055 and l1 ratio=0.95 will give the lowest error score. Now Elastic Net Regression model has improved a bit and we run the score again
 
 ![126](https://user-images.githubusercontent.com/38633055/40436956-a275f6e6-5ea3-11e8-87f8-0be35b01093e.PNG)
 
@@ -310,6 +311,11 @@ We have six main parameters in Gradient Boosting Regression model: *n_estimators
 * **3) Lasso**
 
 ![130](https://user-images.githubusercontent.com/38633055/40447315-ab1df816-5ec1-11e8-84d0-7073a16184b5.PNG)
+
+Lasso has the parameter alpha to control the severity of panelty term and it is also the model driver. After trying a few value of alpha, I have winded on an interval [0.0005,0.0006] to search the best value for alpha.
+
+![131](https://user-images.githubusercontent.com/38633055/40448692-c4f301f6-5ec5-11e8-8f12-4297b5ce3637.PNG)
+
 
 * **4) Random Forest**
 The initial score:
