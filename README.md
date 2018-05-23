@@ -251,7 +251,7 @@ Load Libraries
 ![116](https://user-images.githubusercontent.com/38633055/40429348-08e557bc-5e92-11e8-98c4-d7c3ce3a0437.PNG)
 
 ### 5.1 Base Machine Learning Models
-All the base models are packaged in **pipelines**. Pipelines help automating the workflow of data pre-processing, model training and fitting. In this section, I propose some base models to use and I optimize the performance of each base model by selecting the most suitable parameters, which is so called gridsearch. 
+All the base models are packaged in **pipelines**. Pipelines help automating the workflow of data pre-processing, model training and fitting. In this section, I propose some base models to use and I will optimize the performance of each base model by selecting the most suitable parameters, which is so called gridsearch. 
 
 Before running models, Let's first define the cross validation function (**why do we need this??**). I use the **cross_val_score** function from scikit-learn but this function do not have a shuffle attribute, so I add a line of code **KFold** in order to shuffle the dataset before cross validation.
 ![117](https://user-images.githubusercontent.com/38633055/40432388-1d6599ac-5e99-11e8-86a8-fc476fb5821d.PNG)
@@ -288,8 +288,8 @@ Robust scaler is also applied
 
 Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score
 
-* **Elastic Net Regression**
-
+* **1) Elastic Net Regression**
+Initial score is:
 ![124](https://user-images.githubusercontent.com/38633055/40436052-9cea476a-5ea1-11e8-9434-04a2799a3756.PNG)
 
 Elastic Net Regression has two main parameters: alpha and l1 ratio. Then I define two possible sets of data to grid search the best parameter combination
@@ -299,8 +299,23 @@ From figure above we can see when alpha=0.00055 and l1 ratio=0.95 will give lowe
 
 ![126](https://user-images.githubusercontent.com/38633055/40436956-a275f6e6-5ea3-11e8-87f8-0be35b01093e.PNG)
 
-* **Random Forest**
+* **2) Gradient Boosting Regression**
 
+The initial score is:
+![128](https://user-images.githubusercontent.com/38633055/40445359-6b56fd64-5ebb-11e8-96f1-30458ef816cb.PNG)
+
+We have six main parameters in Gradient Boosting Regression model: *n_estimators, learning_rate, max_depth, min_samples_leaf, max_features, min_samples_split*, so I arbitrarily define six sets of data to pick up the parameters which will give us the best model score. After updating parameters, I re-run the model and this time score decreases to 0.1120!
+![129](https://user-images.githubusercontent.com/38633055/40446299-4a022e2e-5ebe-11e8-9b8d-63649e09e06e.PNG)
+
+* **3) Lasso**
+
+![130](https://user-images.githubusercontent.com/38633055/40447315-ab1df816-5ec1-11e8-84d0-7073a16184b5.PNG)
+
+* **4) Random Forest**
 The initial score:
 ![127](https://user-images.githubusercontent.com/38633055/40437343-9961d7ae-5ea4-11e8-9994-5ee94e1e6dae.PNG)
 
+I grid search the parameter "max_feature" in RandomForest and find value XX is the most suitable.
+# Add a picture
+After changing the parameter the score now looks like
+# Add a pic
