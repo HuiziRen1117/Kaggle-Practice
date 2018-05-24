@@ -168,12 +168,12 @@ Up to now we have filled with all missing value!
 ![38](https://user-images.githubusercontent.com/38633055/40335194-6ddb68fe-5d30-11e8-85e8-08b0139d9ae8.png)
 
 ### 4.2 Continue Feature Engineering: 
+This section will introduce following data methods:
 
-**Transform Numerical Variables Into Categorical Variables**
+* **Transform Numerical Variables Into Categorical Variables**
+* **Tranform date and time**
+* **Merge certain variables**
 
-**Tranform date and time**
-
-**Merge certain variables**
 ![101](https://user-images.githubusercontent.com/38633055/40367504-1d21e1a6-5dc9-11e8-95d8-02b92e59c8b7.png)
 
 #### OverallCond
