@@ -168,8 +168,11 @@ Up to now we have filled with all missing value!
 ![38](https://user-images.githubusercontent.com/38633055/40335194-6ddb68fe-5d30-11e8-85e8-08b0139d9ae8.png)
 
 ### 4.2 Continue Feature Engineering: 
+
 **Transform Numerical Variables Into Categorical Variables**
+
 **Tranform date and time**
+
 **Merge certain variables**
 ![101](https://user-images.githubusercontent.com/38633055/40367504-1d21e1a6-5dc9-11e8-95d8-02b92e59c8b7.png)
 
@@ -247,10 +250,18 @@ At the end, I split sale price from training set as the variable of prediction a
 ![114](https://user-images.githubusercontent.com/38633055/40389261-6c8d207e-5e01-11e8-8579-a544d8da8b2e.PNG)
 
 ## 5. Modelling   
+
 Load Libraries
 ![116](https://user-images.githubusercontent.com/38633055/40429348-08e557bc-5e92-11e8-98c4-d7c3ce3a0437.PNG)
 
+
+
+
 ### 5.1 Base Machine Learning Models
+
+
+
+
 All the base models are packaged in **pipelines**. Pipelines help automating the workflow of data pre-processing, model training and fitting. In this section, I propose some base models to use and I will optimize the performance of each base model by selecting the most suitable parameters, which is so called gridsearch. 
 
 Before running models, Let's first define the cross validation function (**why do we need this??**). I use the **cross_val_score** function from scikit-learn but this function do not have a shuffle attribute, so I add a line of code **KFold** in order to shuffle the dataset before cross validation.
@@ -285,7 +296,13 @@ Robust scaler is also applied
 
 * **XGBoost**
 
+
+
+
 ### 5.2 Base Model Scores & Model Selection
+
+
+
 
 Now, Let's see how each base model performs on our dataset by evaluating individual's cross-validation score. Also we will focus on how to optimize each base model based on these scores.
 
@@ -327,10 +344,22 @@ After gridsearching the parameter "max_feature" in RandomForest and find value X
 After changing the parameter the score now looks like
 # Add a pic
 
+
+
+
 ### 5.3 Model Stacking
+
+
+
 
 After optimizing individual base model, I will apply stacking approach to unite these models for more accurate prediction. I start with a simple approach averaging the prediction value from base models. Here is the class I use to stack
 
 ![132](https://user-images.githubusercontent.com/38633055/40450894-817b3a0e-5ecc-11e8-8e29-94629bea5e73.PNG)
+
+From last session we find out that Lasso, Gradient Boosting Regression and Elastic Net Regression perform best, so here I stack these models by simply taking average.
+
+![133](https://user-images.githubusercontent.com/38633055/40490585-6dafd676-5f5b-11e8-8cbe-a0998734c3d9.PNG)
+
+**Other Stacking Method**
 
 
