@@ -1,4 +1,6 @@
-# House prices: Ensemble and a comprehensive EDA (keep updating)
+# House prices: Ensemble and a comprehensive EDA 
+## Kaggle Competition Rank Top 0.2% (12/5410)
+https://www.kaggle.com/huiziren1117
 
 ## 1. Introduction
 
@@ -20,18 +22,16 @@ I started the competition by focusing on detailed data exploration just to have 
 
 * **Grid Search** parameters to optimize a machine learning model
 
-* **Random Forest**
+* **Random Forest, XGBoost, Lasso, Elastic Net Regression, Gradient Boosting Regression**
 
-*	**XGBoost**
-
-*	**Stacking**
+*	**Ensemble**
 
 ## 3. Exploratory Data Analysis
 
 **First, Let's start with loading libraries from python**
 ![1](https://user-images.githubusercontent.com/38633055/40275135-0c473a28-5bb4-11e8-9ea5-3d86c37fb3f4.png)
-Next, we load the dataset and store it in a dataframe called "df", from the shape of which we can see that there are 1460 records and 81 features. Our response variable is "SalePrice".
-![2](https://user-images.githubusercontent.com/38633055/40275173-e5d32828-5bb5-11e8-92b6-63a024f3b4df.png)
+Next, we load both train and test datasets and merge them in a dataframe called "df", from the shape of which we can see that there are 1460 records and 81 features. Our response variable is "SalePrice".
+![134](https://user-images.githubusercontent.com/38633055/40679535-f557d644-6372-11e8-8481-d0e37ff87779.PNG)
 
 After loading the dataset, we would like to do some visualization just to have a clear view of our dataset . The first thing I'm interested in is to see how many missing value in each feature. Because our number of features is not small, for a clear view I ordered the number of missing values in a descending sequence.
 ![3](https://user-images.githubusercontent.com/38633055/40275191-ba4f4e4c-5bb6-11e8-890a-74ec51254d67.png)
