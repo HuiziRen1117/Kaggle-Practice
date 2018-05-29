@@ -30,7 +30,7 @@ I started the competition by focusing on detailed data exploration just to have 
 
 **First, Let's start with loading libraries from python**
 ![1](https://user-images.githubusercontent.com/38633055/40275135-0c473a28-5bb4-11e8-9ea5-3d86c37fb3f4.png)
-Next, we load both train and test datasets and merge them in a dataframe called "df", from the shape of which we can see that there are 1460 records and 81 features. Our response variable is "SalePrice".
+Next, we load both train and test datasets and merge them in a dataframe called "df", from the shape of which we can see that there are 2917 records and 81 features. Our response variable is "SalePrice".
 ![134](https://user-images.githubusercontent.com/38633055/40679535-f557d644-6372-11e8-8481-d0e37ff87779.PNG)
 
 After loading the dataset, we would like to do some visualization just to have a clear view of our dataset . The first thing I'm interested in is to see how many missing value in each feature. Because our number of features is not small, for a clear view I ordered the number of missing values in a descending sequence.
@@ -294,7 +294,6 @@ Robust scaler is also applied
 
 ![122](https://user-images.githubusercontent.com/38633055/40434863-daf6da3a-5e9e-11e8-9e0c-b4af324f96eb.PNG)
 
-* **XGBoost**
 
 
 
@@ -312,27 +311,28 @@ Initial score is:
 ![124](https://user-images.githubusercontent.com/38633055/40436052-9cea476a-5ea1-11e8-9434-04a2799a3756.PNG)
 
 Elastic Net Regression has two main parameters: alpha and l1 ratio. Then I define two possible sets of data to grid search the best parameter combination
-![125](https://user-images.githubusercontent.com/38633055/40436625-e8416b0c-5ea2-11e8-8fce-b08a0b3a2e55.PNG)
+![135](https://user-images.githubusercontent.com/38633055/40683298-b4eac426-637d-11e8-88c1-bf4f9ae203f7.PNG)
 
-From figure above we can see when alpha=0.00055 and l1 ratio=0.95 will give the lowest error score. Now Elastic Net Regression model has improved a bit and we run the score again
+From figure above we can see updated scores under each pair of parameters. After selecting the best estimator, Elastic Net Regression model now has improved both in terms of mean and standard deviation. We run the score again
 
-![126](https://user-images.githubusercontent.com/38633055/40436956-a275f6e6-5ea3-11e8-87f8-0be35b01093e.PNG)
+![136](https://user-images.githubusercontent.com/38633055/40683498-53d51316-637e-11e8-8294-0e0af84ce090.PNG)
 
 * **2) Gradient Boosting Regression**
 
 The initial score is:
 ![128](https://user-images.githubusercontent.com/38633055/40445359-6b56fd64-5ebb-11e8-96f1-30458ef816cb.PNG)
 
-We have six main parameters in Gradient Boosting Regression model: *n_estimators, learning_rate, max_depth, min_samples_leaf, max_features, min_samples_split*, so I arbitrarily define six sets of data to pick up the parameters which will give us the best model score. After updating parameters, I re-run the model and this time score decreases to 0.1120!
-![129](https://user-images.githubusercontent.com/38633055/40446299-4a022e2e-5ebe-11e8-9b8d-63649e09e06e.PNG)
+We have six main parameters in Gradient Boosting Regression model: *n_estimators, learning_rate, max_depth, min_samples_leaf, max_features, min_samples_split*, so I arbitrarily define six sets of data to pick up the parameters which will give us the best model score. After updating parameters, I re-run the model and this time score decreases to 0.1118!
+![138](https://user-images.githubusercontent.com/38633055/40684045-c9b7521e-637f-11e8-8d12-73475dfce2fc.PNG)
 
 * **3) Lasso**
 
-![130](https://user-images.githubusercontent.com/38633055/40447315-ab1df816-5ec1-11e8-84d0-7073a16184b5.PNG)
+Lasso performs best initially.
+![139](https://user-images.githubusercontent.com/38633055/40684186-3e1ade00-6380-11e8-9fed-88716de37751.PNG)
 
 Lasso has the parameter alpha to control the severity of panelty term and it is also the model driver. After trying a few value of alpha just to get idea about what the suitable range would be, I have winded on an interval [0.0005,0.0006] to search for the best alpha value.
 
-![131](https://user-images.githubusercontent.com/38633055/40448692-c4f301f6-5ec5-11e8-8f12-4297b5ce3637.PNG)
+![140](https://user-images.githubusercontent.com/38633055/40684331-8c3a18c6-6380-11e8-9e21-80b45d5350b2.PNG)
 
 * **4) Random Forest**
 
@@ -340,9 +340,7 @@ The initial score:
 ![127](https://user-images.githubusercontent.com/38633055/40437343-9961d7ae-5ea4-11e8-9994-5ee94e1e6dae.PNG)
 
 After gridsearching the parameter "max_feature" in RandomForest and find value XX is the most suitable.
-# Add a picture
-After changing the parameter the score now looks like
-# Add a pic
+
 
 
 
@@ -358,8 +356,10 @@ After optimizing individual base model, I will apply stacking approach to unite 
 
 From last session we find out that Lasso, Gradient Boosting Regression and Elastic Net Regression perform best, so here I stack these models by simply taking average.
 
-![133](https://user-images.githubusercontent.com/38633055/40490585-6dafd676-5f5b-11e8-8cbe-a0998734c3d9.PNG)
+![141](https://user-images.githubusercontent.com/38633055/40684415-ce434f4e-6380-11e8-8fec-fbd99f5deb86.PNG)
 
-**Other Stacking Method**
 
+## Conclusion
+
+Cross-validation score is 0.1080 after ensembling Elastic Nets Regression, Lasso and Gradient Boosting. We apply this model to fit the test set and get final test score 0.10985
 
